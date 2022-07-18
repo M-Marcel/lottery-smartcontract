@@ -1,7 +1,7 @@
 const networkConfig = {
     default: {
         name: "hardhat",
-        keepersUpdateInterval: "30",
+        Interval: "30",
     },
     31337: {
         name: "localhost",
@@ -22,7 +22,7 @@ const networkConfig = {
     },
     1: {
         name: "mainnet",
-        keepersUpdateInterval: "30",
+        Interval: "30",
     },
 }
 
