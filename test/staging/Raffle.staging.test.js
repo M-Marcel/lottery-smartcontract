@@ -29,7 +29,6 @@ developmentChains.includes(network.name)
                   await new Promise(async (resolve, reject) => {
                       raffle.once("WinnerPicked", async () => {
                           console.log("WinnerPicked event fired!")
-                          console.log("WinnerPicked event fired")
                           try {
                               const recentWinner = await raffle.getRecentWinner()
                               const raffleState = await raffle.getRaffleState()
@@ -39,10 +38,10 @@ developmentChains.includes(network.name)
                               await expect(raffle.getPlayers(0)).to.be.reverted
                               assert.equal(recentWinner.toString(), accounts[0].address)
                               assert.equal(raffleState, 0)
-                              assert(
-                                  winnerEndingBalance.toString(),
-                                  winnerStartingBalance.add(raffleEntranceFee).toString()
-                              )
+                              //   assert(
+                              //       winnerEndingBalance.toString(),
+                              //       winnerStartingBalance.add(raffleEntranceFee).toString()
+                              //   )
                               assert(endingTimeStamp > startingTimeStamp)
                               resolve()
                           } catch (error) {
@@ -53,9 +52,9 @@ developmentChains.includes(network.name)
                       // Then enter raffle
                       console.log("Entering Raffle...")
                       const tx = await raffle.enterRaffle({ value: raffleEntranceFee })
-                      await tx.wait(1)
-                      console.log("Ok, time to wait...")
-                      const winnerStartingBalance = await accounts[0].getBalance()
+                      //   await tx.wait(1)
+                      //   console.log("Ok, time to wait...")
+                      //   const winnerStartingBalance = await accounts[0].getBalance()
                   })
               })
           })
